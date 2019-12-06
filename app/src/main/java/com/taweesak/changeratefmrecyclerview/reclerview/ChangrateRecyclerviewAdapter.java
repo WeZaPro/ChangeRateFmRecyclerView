@@ -56,14 +56,14 @@ public class ChangrateRecyclerviewAdapter extends RecyclerView.Adapter<Changrate
             super(itemView);
 
             _name = itemView.findViewById(R.id.tv_name);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
+            
+            /*itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int clickItem = (int) view.getTag();
                     Toast.makeText(context,"item number : "+clickItem,Toast.LENGTH_SHORT).show();
                 }
-            });
+            });*/
 
         }
     }
