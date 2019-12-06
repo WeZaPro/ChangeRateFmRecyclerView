@@ -24,8 +24,8 @@ import com.taweesak.changeratefmrecyclerview.viewModel.ViewModel;
 
 public class MainFragment extends Fragment implements View.OnClickListener {
 
-    Button buttonMainFragment;
-    Fragment choicefragment;
+    Button buttonMainFragment,buttonMainFragmentToRv;
+    Fragment choicefragment,RvFragment;
     ViewModel viewModel;
     TextView textView;
     Model model;
@@ -56,7 +56,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         getDataFromViewModel();
 
         buttonMainFragment = view.findViewById(R.id.buttonMainFragment);
+        buttonMainFragmentToRv = view.findViewById(R.id.buttonMainFragmentToRv);
+
         buttonMainFragment.setOnClickListener(this);
+        buttonMainFragmentToRv.setOnClickListener(this);
     }
 
     private void getDataFromViewModel() {
@@ -72,9 +75,20 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-
         choicefragment = new ChoiceFragment();
-        replaceFragment(choicefragment);
+        RvFragment = new RvFragment();
+
+        switch (view.getId()){
+            case R.id.buttonMainFragment:
+                replaceFragment(choicefragment);
+                break;
+
+            case R.id.buttonMainFragmentToRv:
+                replaceFragment(RvFragment);
+                break;
+        }
+
+
     }
 
     public void replaceFragment(Fragment someFragment) {
