@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ChangeRateFmRecyclerView</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="main_fragment">Main fragment</string>
+    <string name="choice_fragment">Choice Fragment</string>
+</resources>
