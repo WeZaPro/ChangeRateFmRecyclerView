@@ -16,9 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
-
 import com.taweesak.changeratefmrecyclerview.R;
 import com.taweesak.changeratefmrecyclerview.dataModel.Model;
 import com.taweesak.changeratefmrecyclerview.reclerview.ChangrateRecyclerviewAdapter;

@@ -1,7 +1,5 @@
 package com.taweesak.changeratefmrecyclerview.ui;
 
-
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -68,16 +66,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
     }
 
-    /*@Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        String name=getArguments().getString("TEXT");
-        textView.setText(name);
-        Toast.makeText(getActivity(),"Data get is ",Toast.LENGTH_SHORT).show();
-
-    }*/
-
     private void getDataFromViewModel() {
 
         viewModel.getmString().observe(getActivity(), new Observer<Model>() {
@@ -106,8 +94,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                 replaceFragment(RvFragment);
                 break;
         }
-
-
     }
 
     public void replaceFragment(Fragment someFragment) {

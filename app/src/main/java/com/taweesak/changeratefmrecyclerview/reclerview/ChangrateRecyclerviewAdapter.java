@@ -23,11 +23,7 @@ import com.taweesak.changeratefmrecyclerview.viewModel.ViewModel;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -92,12 +88,6 @@ public class ChangrateRecyclerviewAdapter extends RecyclerView.Adapter<Changrate
                     int clickItem = (int) v.getTag();
 
                     //Toast.makeText(context,"item number : "+mDataList.get(clickItem).getText(),Toast.LENGTH_SHORT).show();
-
-                    // test send data to main fragment ***************
-                    /*RvFragment fragmentRV=new RvFragment();
-                    Bundle bundle=new Bundle();
-                    //bundle.putString("TEXT",mDataList.get(clickItem).getText());
-                    fragmentRV.setArguments(bundle);*/
 
                     updateCart(mDataList.get(clickItem));
 

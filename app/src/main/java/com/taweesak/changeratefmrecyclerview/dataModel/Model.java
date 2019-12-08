@@ -3,8 +3,8 @@ package com.taweesak.changeratefmrecyclerview.dataModel;
 public class Model {
     String unit;
     String text;
-    Integer fraction;
-    Double normalPrice, promoPrice;
+    /*Integer fraction;
+    Double normalPrice, promoPrice;*/
     boolean isPromo;
     boolean isChecked;
 
