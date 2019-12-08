@@ -37,7 +37,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = ViewModelProviders.of(requireActivity()).get(ViewModel.class);
+        viewModel = ViewModelProviders.of(getActivity()).get(ViewModel.class);
     }
 
     @Override
@@ -45,6 +45,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main, container, false);
+
         return view;
     }
 
@@ -60,7 +61,18 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
         buttonMainFragment.setOnClickListener(this);
         buttonMainFragmentToRv.setOnClickListener(this);
+
     }
+
+    /*@Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        String name=getArguments().getString("TEXT");
+        textView.setText(name);
+        Toast.makeText(getActivity(),"Data get is ",Toast.LENGTH_SHORT).show();
+
+    }*/
 
     private void getDataFromViewModel() {
 

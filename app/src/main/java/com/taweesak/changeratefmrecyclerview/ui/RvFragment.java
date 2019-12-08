@@ -6,6 +6,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +20,7 @@ import android.widget.Toast;
 import com.taweesak.changeratefmrecyclerview.R;
 import com.taweesak.changeratefmrecyclerview.dataModel.Model;
 import com.taweesak.changeratefmrecyclerview.reclerview.ChangrateRecyclerviewAdapter;
+import com.taweesak.changeratefmrecyclerview.viewModel.ViewModel;
 
 import java.util.ArrayList;
 
@@ -26,6 +30,7 @@ public class RvFragment extends Fragment implements ChangrateRecyclerviewAdapter
     private ArrayList<Model> lstData = new ArrayList<>();
     RecyclerView recyclerView;
     private ChangrateRecyclerviewAdapter mAdapter;
+    ViewModel viewModel;
 
     public RvFragment() {
         // Required empty public constructor
@@ -34,6 +39,7 @@ public class RvFragment extends Fragment implements ChangrateRecyclerviewAdapter
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        viewModel = ViewModelProviders.of(getActivity()).get(ViewModel.class);
 
     }
 
@@ -49,6 +55,7 @@ public class RvFragment extends Fragment implements ChangrateRecyclerviewAdapter
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mAdapter = new ChangrateRecyclerviewAdapter(getActivity(),lstData,this);
         recyclerView.setAdapter(mAdapter);
+
         return view;
     }
 
@@ -83,6 +90,12 @@ public class RvFragment extends Fragment implements ChangrateRecyclerviewAdapter
 
         mAdapter.notifyDataSetChanged();
         recyclerView.refreshDrawableState();
+
+        // change fragment to main fragment ******************
+        MainFragment mainFragment = new MainFragment();
+        FragmentManager manager=getFragmentManager();
+        FragmentTransaction transaction=manager.beginTransaction();
+        transaction.replace(R.id.contentContainer_main,mainFragment).commit();
 
        // Toast.makeText(getActivity(), p.getUnit() + " is selected", Toast.LENGTH_SHORT).show();
 

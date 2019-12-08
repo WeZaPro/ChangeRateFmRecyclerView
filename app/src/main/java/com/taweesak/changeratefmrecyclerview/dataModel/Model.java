@@ -28,29 +28,29 @@ public class Model {
         this.text = text;
     }
 
-    public Integer getFraction() {
+   /* public Integer getFraction() {
         return fraction;
-    }
+    }*/
 
-    public void setFraction(Integer fraction) {
+    /*public void setFraction(Integer fraction) {
         this.fraction = fraction;
-    }
+    }*/
 
-    public Double getNormalPrice() {
+    /*public Double getNormalPrice() {
         return normalPrice;
-    }
+    }*/
 
-    public void setNormalPrice(Double normalPrice) {
+   /* public void setNormalPrice(Double normalPrice) {
         this.normalPrice = normalPrice;
-    }
+    }*/
 
-    public Double getPromoPrice() {
+    /*public Double getPromoPrice() {
         return promoPrice;
-    }
+    }*/
 
-    public void setPromoPrice(Double promoPrice) {
+    /*public void setPromoPrice(Double promoPrice) {
         this.promoPrice = promoPrice;
-    }
+    }*/
 
     public boolean isPromo() {
         return isPromo;

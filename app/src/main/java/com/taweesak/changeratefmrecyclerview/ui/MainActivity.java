@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.contentContainer_main,mainFragment)
                 //.add(R.id.contentContainer_choice,choiceFragment)
                 .commit();
-        Toast.makeText(this,"Main",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,"Main",Toast.LENGTH_SHORT).show();
 
     }
 }
