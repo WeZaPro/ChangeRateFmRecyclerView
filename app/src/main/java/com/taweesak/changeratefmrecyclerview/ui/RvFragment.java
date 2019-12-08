@@ -20,11 +20,12 @@ import com.taweesak.changeratefmrecyclerview.reclerview.ChangrateRecyclerviewAda
 
 import java.util.ArrayList;
 
-public class RvFragment extends Fragment {
+public class RvFragment extends Fragment implements ChangrateRecyclerviewAdapter.itemCallback{
 
     private Context context;
     private ArrayList<Model> lstData = new ArrayList<>();
     RecyclerView recyclerView;
+    private ChangrateRecyclerviewAdapter mAdapter;
 
     public RvFragment() {
         // Required empty public constructor
@@ -46,8 +47,8 @@ public class RvFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.myRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        ChangrateRecyclerviewAdapter myAdapter = new ChangrateRecyclerviewAdapter(getActivity(),lstData);
-        recyclerView.setAdapter(myAdapter);
+        mAdapter = new ChangrateRecyclerviewAdapter(getActivity(),lstData,this);
+        recyclerView.setAdapter(mAdapter);
         return view;
     }
 
@@ -68,4 +69,22 @@ public class RvFragment extends Fragment {
         }
     }
 
+    @Override
+    public void itemCallback(int position) {
+
+        Model p = lstData.get(position);
+        p.setChecked(true);
+        for (int x = 0; x < lstData.size(); x++) {
+            Model ship = lstData.get(x);
+            if (x != position) {
+                ship.setChecked(false);
+            }
+        }
+
+        mAdapter.notifyDataSetChanged();
+        recyclerView.refreshDrawableState();
+
+       // Toast.makeText(getActivity(), p.getUnit() + " is selected", Toast.LENGTH_SHORT).show();
+
+    }
 }
