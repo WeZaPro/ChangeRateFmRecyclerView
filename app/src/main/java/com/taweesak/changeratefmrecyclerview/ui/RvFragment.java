@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.taweesak.changeratefmrecyclerview.R;
@@ -31,6 +32,7 @@ public class RvFragment extends Fragment implements ChangrateRecyclerviewAdapter
     RecyclerView recyclerView;
     private ChangrateRecyclerviewAdapter mAdapter;
     ViewModel viewModel;
+    Button buttonSelectChoice;
 
     public RvFragment() {
         // Required empty public constructor
@@ -51,6 +53,7 @@ public class RvFragment extends Fragment implements ChangrateRecyclerviewAdapter
 
         data();
 
+        buttonSelectChoice = view.findViewById(R.id.sendChoice);
         recyclerView = view.findViewById(R.id.myRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mAdapter = new ChangrateRecyclerviewAdapter(getActivity(),lstData,this);
@@ -63,10 +66,21 @@ public class RvFragment extends Fragment implements ChangrateRecyclerviewAdapter
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+         buttonSelectChoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // change fragment to main fragment ******************
+                MainFragment mainFragment = new MainFragment();
+                FragmentManager manager=getFragmentManager();
+                FragmentTransaction transaction=manager.beginTransaction();
+                transaction.replace(R.id.contentContainer_main,mainFragment).commit();
+            }
+        });
+
     }
 
     private void data() {
-        String name_[] = {"Kitty 1","Kitty 2","Kitty 3","Kitty 4","Kitty 5","Kitty 6","Kitty 7"};
+        String name_[] = {"Kitty 1","Kitty 2","Kitty 3","Kitty 4","Kitty 5","Kitty 6","Kitty 7","Kitty 8"};
 
         int dataSize = name_.length;
 
@@ -91,13 +105,8 @@ public class RvFragment extends Fragment implements ChangrateRecyclerviewAdapter
         mAdapter.notifyDataSetChanged();
         recyclerView.refreshDrawableState();
 
-        // change fragment to main fragment ******************
-        MainFragment mainFragment = new MainFragment();
-        FragmentManager manager=getFragmentManager();
-        FragmentTransaction transaction=manager.beginTransaction();
-        transaction.replace(R.id.contentContainer_main,mainFragment).commit();
-
        // Toast.makeText(getActivity(), p.getUnit() + " is selected", Toast.LENGTH_SHORT).show();
 
     }
+
 }

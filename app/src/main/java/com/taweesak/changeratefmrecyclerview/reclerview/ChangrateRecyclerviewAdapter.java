@@ -61,13 +61,9 @@ public class ChangrateRecyclerviewAdapter extends RecyclerView.Adapter<Changrate
     public void onBindViewHolder(@NonNull VH holder, int position) {
 
         Model s = mDataList.get(position);
-
         holder._name.setText(mDataList.get(position).getText());
-
         holder.itemView.setTag(position);
-
         holder.radioButton.setChecked(s.isChecked());
-
     }
 
     @Override
@@ -79,7 +75,6 @@ public class ChangrateRecyclerviewAdapter extends RecyclerView.Adapter<Changrate
 
         RadioButton radioButton;
         TextView _name;
-
 
         public VH(View itemView) {
             super(itemView);
@@ -96,21 +91,20 @@ public class ChangrateRecyclerviewAdapter extends RecyclerView.Adapter<Changrate
                     //Toast.makeText(context,"item number : "+mDataList.get(clickItem).getText(),Toast.LENGTH_SHORT).show();
 
                     // test send data to main fragment ***************
-                    RvFragment fragmentRV=new RvFragment();
+                    /*RvFragment fragmentRV=new RvFragment();
                     Bundle bundle=new Bundle();
-                    bundle.putString("TEXT",mDataList.get(clickItem).getText());
-                    fragmentRV.setArguments(bundle);
+                    //bundle.putString("TEXT",mDataList.get(clickItem).getText());
+                    fragmentRV.setArguments(bundle);*/
 
                     updateCart(mDataList.get(clickItem));
 
                     // check data
                     //Toast.makeText(context,"BUNDEL to is : "+bundle,Toast.LENGTH_SHORT).show();
-
-                    mAdapterCallback.itemCallback(getAdapterPosition());
+                    /*mAdapterCallback.itemCallback(getAdapterPosition());*/
+                    mAdapterCallback.itemCallback(clickItem);
                     notifyDataSetChanged();
                 }
             });
-
         }
     }
 
@@ -119,9 +113,9 @@ public class ChangrateRecyclerviewAdapter extends RecyclerView.Adapter<Changrate
         void itemCallback(int position);
     }
 
-    private void updateCart(Model cartModel){
-        String tqt = String.valueOf(cartModel.getText());
-        Log.d(TAG, "updateQuantity: "+tqt);
+    private void updateCart(Model cartModel) {
+        String txt = String.valueOf(cartModel.getText());
+        Log.d(TAG, "updateText: " + txt);
         /*cartRepository.updateCartRepo(cartModel);*/
         viewModel.setmString(cartModel);
 
