@@ -62,6 +62,7 @@ public class ChangrateRecyclerviewAdapter extends RecyclerView.Adapter<Changrate
 
         Model s = mDataList.get(position);
         holder._name.setText(mDataList.get(position).getText());
+        holder._imageFlag.setImageResource(mDataList.get(position).getImage());
         holder.itemView.setTag(position);
         holder.radioButton.setChecked(s.isChecked());
     }
@@ -75,12 +76,14 @@ public class ChangrateRecyclerviewAdapter extends RecyclerView.Adapter<Changrate
 
         RadioButton radioButton;
         TextView _name;
+        ImageView _imageFlag;
 
         public VH(View itemView) {
             super(itemView);
 
             radioButton = itemView.findViewById(R.id.radio_button);
             _name = itemView.findViewById(R.id.tv_name);
+            _imageFlag = itemView.findViewById(R.id.imageFlag);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -115,7 +118,9 @@ public class ChangrateRecyclerviewAdapter extends RecyclerView.Adapter<Changrate
 
     private void updateCart(Model cartModel) {
         String txt = String.valueOf(cartModel.getText());
+        int imageFlags = cartModel.getImage();
         Log.d(TAG, "updateText: " + txt);
+        Log.d(TAG, "updateImage: " + imageFlags);
         /*cartRepository.updateCartRepo(cartModel);*/
         viewModel.setmString(cartModel);
 

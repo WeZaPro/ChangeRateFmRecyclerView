@@ -8,8 +8,15 @@ public class Model {
     boolean isPromo;
     boolean isChecked;
 
+    int image;
+
     public Model(String text) {
         this.text = text;
+    }
+
+    public Model(String text, int image) {
+        this.text = text;
+        this.image = image;
     }
 
     public String getUnit() {
@@ -66,5 +73,13 @@ public class Model {
 
     public void setChecked(boolean checked) {
         isChecked = checked;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 }

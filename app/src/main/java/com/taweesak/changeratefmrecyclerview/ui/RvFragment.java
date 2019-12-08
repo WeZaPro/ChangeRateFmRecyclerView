@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.taweesak.changeratefmrecyclerview.R;
@@ -81,11 +82,13 @@ public class RvFragment extends Fragment implements ChangrateRecyclerviewAdapter
 
     private void data() {
         String name_[] = {"Kitty 1","Kitty 2","Kitty 3","Kitty 4","Kitty 5","Kitty 6","Kitty 7","Kitty 8"};
+        int image[] = {R.drawable.usa,R.drawable.japan,R.drawable.europe,R.drawable.usa,R.drawable.japan,
+                R.drawable.europe,R.drawable.usa,R.drawable.japan,};
 
         int dataSize = name_.length;
 
         for (int i = 0; i <dataSize ; i++) {
-            Model model = new Model(name_[i]);
+            Model model = new Model(name_[i],image[i]);
             lstData.add(model);
         }
     }

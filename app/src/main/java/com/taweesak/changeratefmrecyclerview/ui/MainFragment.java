@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     ViewModel viewModel;
     TextView textView;
     Model model;
+    ImageView flagImage;
 
     public MainFragment() {
         // Required empty public constructor
@@ -54,6 +56,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
 
         textView = view.findViewById(R.id.textViewMain);
+        flagImage = view.findViewById(R.id.flagImage);
+
         getDataFromViewModel();
 
         buttonMainFragment = view.findViewById(R.id.buttonMainFragment);
@@ -80,7 +84,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onChanged(Model model) {
                 Toast.makeText(getActivity(), "on main FM Text is : " + model.getText(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "on main FM Text is : " + model.getImage(), Toast.LENGTH_SHORT).show();
                 textView.setText("" + model.getText());
+                flagImage.setImageResource(model.getImage());
+
             }
         });
     }
